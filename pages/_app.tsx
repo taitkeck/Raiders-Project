@@ -26,6 +26,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import TemporaryDrawer from './components/drawer';
 
 import HomeIcon from '@mui/icons-material/Home';
 import MessageIcon from '@mui/icons-material/Message';
@@ -108,7 +109,7 @@ export default function MyApp(props: MyAppProps, useStyles : () => any) {
     <Box sx={{ flexGrow: 1 }} className = "box">
       <AppBar position="static" className="appbar">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -116,32 +117,11 @@ export default function MyApp(props: MyAppProps, useStyles : () => any) {
             // sx={{ mr: 2 }}
           >
             <HomeIcon />
-          </IconButton>
+          </IconButton> */}
+          <TemporaryDrawer />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Raiders of the Lost Parts
-            <IconButton
-              className="messageicon"
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="home"
-              // sx={{ mr: 2 }}
-            >
-              <MessageIcon />
-            </IconButton>
-            <IconButton
-              className="addicon"
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="home"
-              
-              sx={{ mr: 2 }}
-            >
-              <AddIcon />
-            </IconButton>
           </Typography>
-          
           <Button color="inherit" variant="outlined" onClick={handleClickOpen}>Login</Button>
           <Box>
             <Dialog
