@@ -1,0 +1,50 @@
+.appbar {
+    background-color: #4F4A3D;
+    color: beige;
+    margin: 0px;
+}
+body {
+    background-color: #8B7B55;
+}
+.logincard {
+    width: 300px;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+}
+.tirecard {
+    max-width: 150px;
+    background-color:whitesmoke;
+    margin: 25px;
+    background-color: beige;
+}
+.tireimg {
+    padding-left: 50px;
+}
+.brakecard {
+    max-width: 150px;
+    background-color:whitesmoke;
+    margin: 25px;
+    background-color: beige;
+}
+.brakeimg {
+    width: 100%
+}
+.forgot {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+.makeacount {
+    padding-top :25px;
+    margin-left: 10px;
+}
+.messageicon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.addicon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
