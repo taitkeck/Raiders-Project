@@ -16,10 +16,50 @@ import { IconButton } from "@mui/material"
 import MessageIcon from '@mui/icons-material/Message';
 import AddIcon from '@mui/icons-material/Add';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { ReactNode } from 'react';
+
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
+
+
 export default function TemporaryDrawer() {
+
+    // const Icons = [
+    //     {
+    //         //id: 0,
+    //         name: "Profile",
+    //         description:"icon",
+    //         icon: <AccountCircleIcon />,
+    //     },
+    //     {
+    //         //id:1,
+    //         name: "Message",
+    //         description: "icon",
+    //         icon: <MessageIcon/>,
+    //     },
+    //     {
+    //         //id:2,
+    //         name: "Create Ad",
+    //         description: "icon",
+    //         icon: <AddIcon/>,
+    //     },
+    //     {
+    //         //id:3,
+    //         name: "Favorites",
+    //         description: "icon",
+    //         icon: <FavoriteIcon/>,
+    //     }
+    // ]
+
+    const Icons = [
+        <AccountCircleIcon />,
+        <MessageIcon />,
+        <AddIcon />,
+        <FavoriteIcon />,
+    ]
+    
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -40,6 +80,10 @@ export default function TemporaryDrawer() {
 
                 setState({ ...state, [anchor]: open });
             };
+
+    interface IconsProps {
+        icon: ReactNode;
+    }
     const list = (anchor: Anchor) => (
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -48,19 +92,41 @@ export default function TemporaryDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Message', 'Create Ad', 'Favorites', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                    <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <MessageIcon /> : <AddIcon />}
+                                <AccountCircleIcon />
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary="Profile" />
                         </ListItemButton>
                     </ListItem>
-                ))}
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <MessageIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Message" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <AddIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Create Ad" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <FavoriteIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Favorite's" />
+                        </ListItemButton>
+                    </ListItem>
             </List>
             <Divider />
-            <List>
+            {/* <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
@@ -71,13 +137,15 @@ export default function TemporaryDrawer() {
                         </ListItemButton>
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </Box>
     );
 
+
+
     return (
         <div>
-            {(['left'] as const).map((anchor) => (
+            {(['left'] as const).map((anchor, i) => (
                 <React.Fragment key={anchor}>
                     <IconButton
                         onClick={toggleDrawer(anchor, true)}
@@ -101,3 +169,4 @@ export default function TemporaryDrawer() {
         </div>
     );
 }
+
